@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "ToDoApp.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/ToDoApp.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDoApp.Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ToDoApp.Shared/1.0.0": {
+      "type": "project",
+      "path": "../ToDoApp.Shared/ToDoApp.Shared.csproj",
+      "msbuildProject": "../ToDoApp.Shared/ToDoApp.Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "ToDoApp.Shared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/bigt/.nuget/packages/": {}
@@ -31,7 +50,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/ToDoApp.Shared.csproj": {
+              "projectPath": "/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/ToDoApp.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

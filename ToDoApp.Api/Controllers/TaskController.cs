@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ToDoApp.Shared.Dtos;
 
 namespace ToDoApp.Api.Controllers
 {
@@ -15,7 +16,7 @@ namespace ToDoApp.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateTask([FromBody] string task)
+        public IActionResult CreateTask([FromBody] TaskDto task)
         {
             // This is a placeholder for the actual implementation
             return CreatedAtAction(nameof(GetTasks), new { Message = "Task created", Task = task });

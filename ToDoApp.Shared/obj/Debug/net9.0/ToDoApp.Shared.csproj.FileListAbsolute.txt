@@ -1,0 +1,12 @@
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/bin/Debug/net9.0/ToDoApp.Shared.deps.json
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/bin/Debug/net9.0/ToDoApp.Shared.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/bin/Debug/net9.0/ToDoApp.Shared.pdb
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ToDoApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ToDoApp.Shared.AssemblyInfoInputs.cache
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ToDoApp.Shared.AssemblyInfo.cs
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ToDoApp.Shared.csproj.CoreCompileInputs.cache
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ToDoApp.Shared.sourcelink.json
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ToDoApp.Shared.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/refint/ToDoApp.Shared.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ToDoApp.Shared.pdb
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Shared/obj/Debug/net9.0/ref/ToDoApp.Shared.dll

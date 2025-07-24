@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../ToDoApp.Shared/ToDoApp.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

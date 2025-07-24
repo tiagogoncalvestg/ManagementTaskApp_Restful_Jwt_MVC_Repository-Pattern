@@ -1,0 +1,9 @@
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.csproj.AssemblyReference.cache
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/rpswa.dswa.cache.json
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.GeneratedMSBuildEditorConfig.editorconfig
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.AssemblyInfoInputs.cache
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.AssemblyInfo.cs
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.csproj.CoreCompileInputs.cache
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.MvcApplicationPartsAssemblyInfo.cs
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.MvcApplicationPartsAssemblyInfo.cache
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.sourcelink.json
