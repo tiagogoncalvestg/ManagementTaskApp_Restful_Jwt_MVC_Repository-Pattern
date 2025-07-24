@@ -13,7 +13,7 @@ public class TaskService : ITaskService
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public Task CreateTaskAsync(Guid id, string title, DateTime createdAt)
+    public async Task<int> CreateTaskAsync(Guid id, string title, DateTime createdAt)
     {
         _context.Tasks.Add(new Models.Task
         {
@@ -21,7 +21,7 @@ public class TaskService : ITaskService
             Title = title,
             CreatedAt = createdAt
         });
-        return _context.SaveChangesAsync();
+        return await _context.SaveChangesAsync();
     }
 
     public Task DeleteTaskAsync(Guid id)

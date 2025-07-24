@@ -24,11 +24,11 @@ namespace ToDoApp.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateTask([FromBody] TaskDto task)
+        public async Task<IActionResult> CreateTask([FromBody] TaskDto task)
         {
             try
             {
-                _taskService.CreateTaskAsync(task.Id ?? Guid.NewGuid(), task.Title, task.CreatedAt ?? DateTime.UtcNow);
+                await _taskService.CreateTaskAsync(task.Id ?? Guid.NewGuid(), task.Title, task.CreatedAt ?? DateTime.UtcNow);
                 return StatusCode(StatusCodes.Status201Created, "Task created successfully.");
             }
             catch (Exception ex)
@@ -38,10 +38,25 @@ namespace ToDoApp.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteTask(int id)
+        public IActionResult DeleteTask(Guid id)
         {
-            // This is a placeholder for the actual implementation
-            return NoContent();
+            try
+            {
+                var task = _taskService.GetTaskByIdAsync(id).Result;
+                if (task == null)
+                {
+                    return NotFound($"Task with ID {id} not found.");
+                }
+                else
+                {
+                    _taskService.DeleteTaskAsync(id).Wait();
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }

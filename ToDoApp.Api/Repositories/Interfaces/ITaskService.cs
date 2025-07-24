@@ -5,7 +5,7 @@ namespace ToDoApp.Api.Repositories.Interfaces;
 
 public interface ITaskService
 {
-    public Task CreateTaskAsync(Guid id, string title, DateTime createdAt);
+    public Task<int> CreateTaskAsync(Guid id, string title, DateTime createdAt);
     public Task<TaskDto> GetTaskByIdAsync(Guid id);
     public List<TaskDto> GetAllTasks();
     public Task UpdateTaskAsync(Guid id, string title);
