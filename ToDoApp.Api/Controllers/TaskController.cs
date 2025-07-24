@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Shared.Dtos;
 using ToDoApp.Api.Repositories.Interfaces;
@@ -19,8 +18,33 @@ namespace ToDoApp.Api.Controllers
         [HttpGet]
         public IActionResult GetTasks()
         {
-            var tasks = _taskService.GetAllTasks();
-            return Ok(tasks);
+            try
+            {
+                var tasks = _taskService.GetAllTasks();
+                return Ok(tasks);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetTaskById(Guid id)
+        {
+            try
+            {
+                var task = _taskService.GetTaskByIdAsync(id);
+                if (task == null)
+                {
+                    return NotFound($"Task with ID {id} not found.");
+                }
+                return Ok(task);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
+            }
         }
 
         [HttpPost]
@@ -28,8 +52,9 @@ namespace ToDoApp.Api.Controllers
         {
             try
             {
-                await _taskService.CreateTaskAsync(task.Id ?? Guid.NewGuid(), task.Title, task.CreatedAt ?? DateTime.UtcNow);
-                return StatusCode(StatusCodes.Status201Created, "Task created successfully.");
+                var id = task.Id ?? Guid.NewGuid();
+                await _taskService.CreateTaskAsync(id, task.Title, task.CreatedAt ?? DateTime.UtcNow);
+                return CreatedAtAction(nameof(GetTaskById), new { id = id }, task);
             }
             catch (Exception ex)
             {
@@ -38,18 +63,18 @@ namespace ToDoApp.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteTask(Guid id)
+        public async Task<IActionResult> DeleteTask(Guid id)
         {
             try
             {
-                var task = _taskService.GetTaskByIdAsync(id).Result;
+                var task = _taskService.GetTaskByIdAsync(id);
                 if (task == null)
                 {
                     return NotFound($"Task with ID {id} not found.");
                 }
                 else
                 {
-                    _taskService.DeleteTaskAsync(id).Wait();
+                    await _taskService.DeleteTaskAsync(id);
                     return Ok();
                 }
             }
