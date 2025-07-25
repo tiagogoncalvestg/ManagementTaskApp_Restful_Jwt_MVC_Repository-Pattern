@@ -83,5 +83,21 @@ namespace ToDoApp.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTask(Guid id, TaskDto task)
+        {
+            try
+            {
+                task.Id = id;
+                var result = await _taskService.UpdateTaskAsync(id, task);
+
+                return result > 0 ? Ok() : StatusCode(StatusCodes.Status304NotModified);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

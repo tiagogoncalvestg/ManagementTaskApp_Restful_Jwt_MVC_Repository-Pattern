@@ -70,14 +70,14 @@ public class TaskService : ITaskService
         });
     }
 
-    public Task UpdateTaskAsync(Guid id, string title)
+    public async Task<int> UpdateTaskAsync(Guid id, TaskDto task)
     {
-        _context.Tasks.Update(new Models.Task
-        {
-            Id = id,
-            Title = title,
-            CreatedAt = DateTime.UtcNow
-        });
-        return _context.SaveChangesAsync();
+        var existingTask = await _context.Tasks.FindAsync(id);
+        if (existingTask == null)
+            throw new KeyNotFoundException($"Task with ID {id} not found.");
+
+        existingTask.Title = task.Title;
+
+        return await _context.SaveChangesAsync();
     }
 }

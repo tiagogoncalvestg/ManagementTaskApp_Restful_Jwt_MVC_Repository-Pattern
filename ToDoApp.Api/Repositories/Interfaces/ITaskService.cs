@@ -8,6 +8,6 @@ public interface ITaskService
     public Task<int> CreateTaskAsync(Guid id, string title, DateTime createdAt);
     public Task<TaskDto> GetTaskByIdAsync(Guid id);
     public List<TaskDto> GetAllTasks();
-    public Task UpdateTaskAsync(Guid id, string title);
+    public Task<int> UpdateTaskAsync(Guid id, TaskDto task);
     public Task DeleteTaskAsync(Guid id);
 }
