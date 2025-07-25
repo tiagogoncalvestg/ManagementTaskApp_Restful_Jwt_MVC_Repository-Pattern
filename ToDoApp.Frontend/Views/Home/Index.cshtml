@@ -5,20 +5,24 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="d-flex justify-content-center align-items-center" style="height: 48vh;">
-    @if (Model.Count > 0)
-    {
-        @foreach (var task in Model)
+<div style="max-width: 1024px;margin: auto;">
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 48vh;flex-wrap: wrap;">
+        @if (Model.Count > 0)
         {
-            <div class="card-body" style="width: 300px;border: 1px solid #ccc; padding: 12px;border-radius: 12px;">
-                <h5 class="card-title">@task.Title</h5>
-                <p class="card-text">Created at: @task.CreatedAt</p>
-                <button class="btn btn-primary">Concluir</button>
-            </div>
+            @foreach (var task in Model)
+            {
+                <div class="card-body" style="width: 300px;height: 150px;border: 1px solid #ccc; padding: 12px;border-radius: 12px;">
+                    <h5 class="card-title">@task.Title</h5>
+                    <p class="card-text">Created at: @task.CreatedAt</p>
+                    <button class="btn btn-primary">Concluir</button>
+                </div>
+            }
         }
-    }
-else
-{
-<p>No tasks available.</p>
-}
+        else
+        {
+            <p>No tasks available.</p>
+        }
+    </div>
+
 </div>
