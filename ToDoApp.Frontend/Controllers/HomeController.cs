@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Frontend.Services;
 using ToDoApp.Models;
+using ToDoApp.Shared.Models;
 
 namespace ToDoApp.Controllers;
 
@@ -24,7 +25,16 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> DeleteTask(Guid taskId)
     {
-        await _taskService.DeleteTaskAsync(taskId);
+        var login = new Login
+        {
+            Email = "teste@teste.com",
+            Password = "123456"
+        };
+
+        // SIMULA USUÁRIO LOGADO
+        var token = await _taskService.AuthAsync(login);
+
+        await _taskService.DeleteTaskAsync(taskId, token);
         return RedirectToAction("Index");
     }
 

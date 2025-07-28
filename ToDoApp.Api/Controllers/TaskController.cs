@@ -108,7 +108,7 @@ namespace ToDoApp.Api.Controllers
             }
         }
 
-        [HttpPost("/login")]
+        [HttpPost("login")]
         public IActionResult Login([FromBody] Login login)
         {
             if (login.Email == "teste@teste.com" && login.Password == "123456")
