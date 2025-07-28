@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Shared.Dtos;
 using ToDoApp.Api.Repositories.Interfaces;
+using ToDoApp.Api.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ToDoApp.Api.Controllers
 {
@@ -8,10 +10,12 @@ namespace ToDoApp.Api.Controllers
     [ApiController]
     public class TaskController : ControllerBase
     {
+        private readonly JwtHelper _jwtHelper;
         private readonly ITaskService _taskService;
 
-        public TaskController(ITaskService taskService)
+        public TaskController(ITaskService taskService, JwtHelper jwtHelper)
         {
+            _jwtHelper = jwtHelper ?? throw new ArgumentNullException(nameof(jwtHelper));
             _taskService = taskService ?? throw new ArgumentNullException(nameof(taskService));
         }
 
@@ -29,6 +33,7 @@ namespace ToDoApp.Api.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetTaskById(Guid id)
         {
@@ -48,6 +53,7 @@ namespace ToDoApp.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateTask([FromBody] TaskDto task)
         {
             try
@@ -62,6 +68,7 @@ namespace ToDoApp.Api.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("{taskId}")]
         public async Task<IActionResult> DeleteTask(Guid taskId)
         {
@@ -84,6 +91,7 @@ namespace ToDoApp.Api.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTask(Guid id, TaskDto task)
         {
@@ -100,12 +108,13 @@ namespace ToDoApp.Api.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login([FromBody] Login login)
+        [HttpPost("/login")]
+        public IActionResult Login([FromBody] Login login)
         {
             if (login.Email == "teste@teste.com" && login.Password == "123456")
             {
-                return Ok(new { Token = "fake-jwt-token" });
+                var token = _jwtHelper.GenerateToken(login.Email);
+                return Ok(new { token });
             }
             else
             {
