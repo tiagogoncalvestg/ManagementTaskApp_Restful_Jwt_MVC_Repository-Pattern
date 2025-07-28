@@ -99,5 +99,22 @@ namespace ToDoApp.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] Login login)
+        {
+            if (login.Email == "teste@teste.com" && login.Password == "123456")
+            {
+                return Ok(new { Token = "fake-jwt-token" });
+            }
+            else
+            {
+                return Unauthorized("Invalid credentials");
+            }
+        }
+
     }
+
+    public record Login(string Email, string Password);
+
 }
