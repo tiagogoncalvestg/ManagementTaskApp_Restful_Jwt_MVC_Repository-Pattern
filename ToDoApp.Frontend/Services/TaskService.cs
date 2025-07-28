@@ -1,5 +1,6 @@
 using System;
 using ToDoApp.Shared.Dtos;
+using ToDoApp.Shared.Models;
 
 namespace ToDoApp.Frontend.Services;
 
@@ -27,8 +28,9 @@ public class TaskService
         return new List<TaskDto>();
     }
 
-    public async Task DeleteTaskAsync(Guid taskId)
+    public async Task DeleteTaskAsync(Guid taskId, string token)
     {
+        _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         var response = await _httpClient.DeleteAsync($"api/v1/task/{taskId}");
         if (!response.IsSuccessStatusCode)
         {
@@ -36,4 +38,17 @@ public class TaskService
         }
     }
 
+    public async Task<string> AuthAsync(Login login)
+    {
+        var response = await _httpClient.PostAsJsonAsync("api/v1/task/login", login);
+        if (response.IsSuccessStatusCode)
+        {
+            var authResponse = await response.Content.ReadFromJsonAsync<AuthResponse>();
+            return authResponse?.Token ?? throw new Exception("Token not found");
+        }
+        throw new Exception("Login failed");
+    }
+
 }
+
+public record AuthResponse(string Token);

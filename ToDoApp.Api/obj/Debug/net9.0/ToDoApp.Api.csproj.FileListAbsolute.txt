@@ -158,3 +158,11 @@
 /home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.pdb
 /home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ToDoApp.Api.genruntimeconfig.cache
 /home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/obj/Debug/net9.0/ref/ToDoApp.Api.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/home/bigt/Documentos/desenvolvimento/vs code/ToDoApp/ToDoApp.Api/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
