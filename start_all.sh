@@ -7,5 +7,3 @@ dotnet run &&
 # Inicia o projeto Web (exemplo)
 cd ToDoApp.Frontend/ 
 dotnet run
-
-wait

@@ -27,4 +27,13 @@ public class TaskService
         return new List<TaskDto>();
     }
 
+    public async Task DeleteTaskAsync(Guid taskId)
+    {
+        var response = await _httpClient.DeleteAsync($"api/v1/task/{taskId}");
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception("Failed to complete task");
+        }
+    }
+
 }

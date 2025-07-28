@@ -13,11 +13,19 @@ public class HomeController : Controller
         _taskService = taskService;
     }
 
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
         var tasks = await _taskService.GetTasksAsync();
 
         return View(tasks);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteTask(Guid taskId)
+    {
+        await _taskService.DeleteTaskAsync(taskId);
+        return RedirectToAction("Index");
     }
 
     public IActionResult Privacy()

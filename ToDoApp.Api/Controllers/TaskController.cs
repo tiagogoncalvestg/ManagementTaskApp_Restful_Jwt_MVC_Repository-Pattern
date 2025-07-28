@@ -62,19 +62,19 @@ namespace ToDoApp.Api.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTask(Guid id)
+        [HttpDelete("{taskId}")]
+        public async Task<IActionResult> DeleteTask(Guid taskId)
         {
             try
             {
-                var task = _taskService.GetTaskByIdAsync(id);
+                var task = _taskService.GetTaskByIdAsync(taskId);
                 if (task == null)
                 {
-                    return NotFound($"Task with ID {id} not found.");
+                    return NotFound($"Task with ID {taskId} not found.");
                 }
                 else
                 {
-                    await _taskService.DeleteTaskAsync(id);
+                    await _taskService.DeleteTaskAsync(taskId);
                     return Ok();
                 }
             }
