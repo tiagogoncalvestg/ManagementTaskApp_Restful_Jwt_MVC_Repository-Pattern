@@ -8,6 +8,9 @@
 <div style="max-width: 1024px;margin: auto;">
 
     <div class="d-flex justify-content-center align-items-center" style="height: 48vh;flex-wrap: wrap;gap: 12px">
+
+
+
         @if (Model.Count > 0)
         {
             @foreach (var task in Model)
@@ -15,11 +18,11 @@
                 <div class="card-body"
                     style="width: 300px;height: 150px;border: 1px solid #ccc; padding: 12px;border-radius: 12px;">
                     <h5 class="card-title">@task.Title</h5>
-                    <p class="card-text">Created at: @task.CreatedAt</p>
+                    <p class="card-text">Criada em: @task.CreatedAt</p>
 
                     <form method="post" asp-controller="Home" asp-action="DeleteTask" class="d-flex justify-content-end">
                         <input type="hidden" name="taskId" value="@task.Id" />
-                        <button type="submit" class="btn btn-success">Concluir</button>
+                        <button type="submit" class="btn btn-danger">Remover</button>
                     </form>
 
                 </div>
@@ -29,6 +32,24 @@
         {
             <p>No tasks available.</p>
         }
+
+        <div class="card-body"
+            style="width: 300px;height: 150px;border: 1px solid #ccc; padding: 12px;border-radius: 12px;">
+            <h5 class="card-title">Nova Tarefa</h5>
+
+            <form method="post" asp-controller="Home" asp-action="CreateTask">
+                <div class="card-body">
+                    <input placeholder="Insira aqui o nome da tarefa" class="form-control" type="text" name="taskTitle" />
+                </div>
+                <div class="card-footer ">
+                    <p class="text-end mt-2">
+                        <button type="submit" class="btn btn-primary">Criar Tarefa</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+
     </div>
 
 </div>

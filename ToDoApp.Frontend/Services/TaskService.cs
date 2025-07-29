@@ -9,9 +9,6 @@ namespace ToDoApp.Frontend.Services;
 // RESPONSÁVEL PELO CONSUMO DE API E MANIPULAÇÃO DE DADOS
 public class TaskService
 {
-
-    // string BASEURL = "http://localhost:5040/";
-
     HttpClient _httpClient;
     public TaskService(HttpClient httpClient)
     {
@@ -35,6 +32,16 @@ public class TaskService
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception("Failed to complete task");
+        }
+    }
+
+    public async Task CreateTaskAsync(TaskDto task, string token)
+    {
+        _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+        var response = await _httpClient.PostAsJsonAsync("api/v1/task", task);
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception("Failed to create task");
         }
     }
 
