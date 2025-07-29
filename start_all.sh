@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# Inicia o projeto API
-cd ToDoApp.Api/ 
-dotnet run &&
+cd ToDoApp.Api/ || exit
+dotnet run &
 
-# Inicia o projeto Web (exemplo)
-cd ToDoApp.Frontend/ 
-dotnet run
+cd ..
+
+cd ToDoApp.Frontend/ || exit
+dotnet run &
+
+wait
