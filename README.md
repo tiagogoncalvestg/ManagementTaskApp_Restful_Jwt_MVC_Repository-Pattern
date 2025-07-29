@@ -1,4 +1,4 @@
-# Restful_Jwt_MVC_Repository-Pattern
+# ManagementTaskApp_Restful_Jwt_MVC_Repository-Pattern
 
 Este projeto é uma API RESTful desenvolvida com **C#** e **ASP.NET MVC**, implementando autenticação com **JWT (JSON Web Token)** e utilizando o padrão de repositório (**Repository Pattern**) para separação de responsabilidades e melhor organização do código.
 
